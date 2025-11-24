@@ -1,0 +1,102 @@
+-- Criação do banco de dados
+
+CREATE DATABASE producaoFabrica;
+
+-- Criação das tabelas do banco de dados
+
+CREATE TABLE fornecedor (
+    cnpj INT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    endereco VARCHAR(100) NOT NULL,
+    pais VARCHAR(30) NOT NULL,
+    telefone VARCHAR(14) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    PRIMARY KEY (cnpj)
+);
+
+CREATE TABLE materiaPrima (
+    codigo INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    preco DECIMAL(8,2) NOT NULL,
+    quantidade INT NOT NULL,
+    codfornecedor INT NOT NULL,
+    PRIMARY KEY (codigo),
+    FOREIGN KEY (codfornecedor) REFERENCES fornecedor(cnpj)
+);
+
+CREATE TABLE fabricacao (
+    codigo INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    dataInicio DATE NOT NULL,
+    dataFinal DATE NOT NULL,
+    descricao VARCHAR(200) NOT NULL,
+    status ENUM('I', 'C', 'EA', 'F') NOT NULL,
+    codmateriaprima INT NOT NULL,
+    PRIMARY KEY (codigo),
+    FOREIGN KEY (codmateriaprima) REFERENCES materiaPrima(codigo)
+);
+
+CREATE TABLE materiaPrimaFabricacao (
+    codmateriaprima INT NOT NULL,
+    codfabricacao INT NOT NULL,
+    FOREIGN KEY (codmateriaprima) REFERENCES materiaPrima(codigo),
+    FOREIGN KEY (codfabricacao) REFERENCES fabricacao(codigo)
+);
+
+CREATE TABLE produto (
+    codigo INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(30) NOT NULL,
+    preco DECIMAL(8,2) NOT NULL,
+    descricao VARCHAR(200) NOT NULL,
+    tamanho INT NOT NULL,
+    quantidade INT NOT NULL,
+    codfabricacao INT NOT NULL,
+    PRIMARY KEY (codigo),
+    FOREIGN KEY (codfabricacao) REFERENCES fabricacao(codigo)
+);
+
+-- Colocando dados 
+
+INSERT INTO fornecedor (cnpj, nome, endereco, pais, telefone, email) VALUES
+(1001, 'Santista Têxtil S.A.', 'Av. Dr. Alberto Jackson Byington, SP', 'Brasil', '1123456789', 'contato@santista.com'),
+(1002, 'Cedro Têxtil', 'R. dos Industriais, MG', 'Brasil', '3135689000', 'vendas@cedro.com'),
+(1003, 'Canatiba Denim Industry', 'Av. Sete de Setembro, SP', 'Brasil', '1147859632', 'suporte@canatiba.com'),
+(1004, 'Vicunha Têxtil S.A.', 'Rua Tomé de Souza, CE', 'Brasil', '8532154478', 'atendimento@vicunha.com'),
+(1005, 'Hering Têxtil', 'Rua Hermann Hering, SC', 'Brasil', '4730649000', 'contato@hering.com');
+
+INSERT INTO materiaPrima (nome, preco, quantidade, codfornecedor) VALUES
+('Tecido Jeans Azul 12oz', 32.90, 500, 1001),
+('Tecido Jeans Black 10oz', 29.50, 300, 1002),
+('Linha Poliester Azul', 5.90, 2000, 1003),
+('Linha Poliester Preta', 6.20, 1800, 1003),
+('Botão Metálico Níquel', 0.80, 5000, 1004),
+('Zíper 18cm', 1.50, 1200, 1005),
+('Etiqueta Couro Sintético', 1.10, 1500, 1005),
+('Rebite Bronze', 0.50, 6000, 1004),
+('Tecido Jeans Premium 14oz', 45.00, 400, 1001),
+('Linha Overlock', 4.00, 2500, 1002);
+
+INSERT INTO fabricacao (nome, dataInicio, dataFinal, descricao, status, codmateriaprima) VALUES
+('Lote Calça Skinny Azul', '2025-01-05', '2025-01-20', 'Produção de calça skinny jeans azul', 'F', 1),
+('Lote Calça Reta Preta', '2025-01-10', '2025-01-25', 'Calça reta com jeans black 10oz', 'F', 2),
+('Lote Calça Mom Azul', '2025-02-01', '2025-02-15', 'Calça estilo Mom com tecido 12oz', 'C', 1),
+('Lote Calça Slim Premium', '2025-02-20', '2025-03-01', 'Linha premium com jeans 14oz', 'EA', 9),
+('Lote Calça Wide Leg', '2025-02-25', '2025-03-10', 'Wide leg com acabamento reforçado', 'I', 1),
+('Lote Bermudas Jeans', '2025-03-01', '2025-03-18', 'Bermudas jeans azul 12oz', 'C', 1);
+
+INSERT INTO materiaPrimaFabricacao (codmateriaprima, codfabricacao) VALUES
+(1, 1), (3, 1), (5, 1), (7, 1),
+(2, 2), (4, 2), (5, 2), (8, 2),
+(1, 3), (3, 3), (8, 3),
+(9, 4), (3, 4), (5, 4), (7, 4),
+(1, 5), (4, 5), (5, 5),
+(1, 6), (3, 6), (7, 6);
+
+INSERT INTO produto (nome, preco, descricao, tamanho, quantidade, codfabricacao) VALUES
+('Calça Skinny Azul', 129.90, 'Modelagem skinny, jeans azul 12oz', 38, 120, 1),
+('Calça Skinny Azul', 129.90, 'Modelagem skinny, jeans azul 12oz', 40, 150, 1),
+('Calça Reta Preta', 139.90, 'Jeans preto 10oz, corte tradicional', 42, 90, 2),
+('Calça Mom Azul', 159.90, 'Modelagem Mom, cintura alta', 38, 80, 3),
+('Calça Slim Premium', 199.90, 'Linha premium com jeans 14oz', 40, 70, 4),
+('Calça Wide Leg', 149.90, 'Modelagem wide leg moderna', 42, 100, 5),
+('Bermuda Jeans Azul', 89.90, 'Bermuda em jeans 12oz', 40, 140, 6);
