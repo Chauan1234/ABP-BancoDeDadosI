@@ -2,7 +2,6 @@
 
 // React
 import React from "react";
-import { useEffect } from "react";
 
 // Components
 import { NavMain } from "@/app/(main)/_components/sidebar/nav-main";
@@ -10,13 +9,14 @@ import { NavHeader } from "@/app/(main)/_components/sidebar/nav-header";
 
 // UI Components
 import { FactoryIcon, LayoutDashboardIcon, PackageIcon, TreeDeciduousIcon, TruckIcon } from "lucide-react";
-import { Sidebar, SidebarContent, SidebarHeader} from "../../../../components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader} from "../../../../components/ui/sidebar";
+import ThemeSwitcher from "./_components/theme-switcher";
 
 // Dados estáticos para popular o sidebar
 const data = {
     NavMain: [
         {
-            title: "Dashboard",
+            title: "Home",
             url: "/",
             icon: LayoutDashboardIcon,
         },
@@ -56,6 +56,10 @@ export default function AppSidebar() {
             <SidebarContent>
                 <NavMain items={data.NavMain} />
             </SidebarContent>
+
+            <SidebarFooter>
+                <ThemeSwitcher />
+            </SidebarFooter>
         </Sidebar>
     )
 }
