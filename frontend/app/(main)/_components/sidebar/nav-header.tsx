@@ -3,29 +3,27 @@
 // React e Next
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Package from '../../../../package.json';
 
-// Assets
-import LogoLabtec from "@/public/logo-labtec-sem-texto.png";
-
 // UI Components
-import { useSidebar } from "@/components/ui/sidebar";
+import { SidebarTrigger, useSidebar } from "@/components/ui/sidebar";
 import { SidebarMenu, SidebarMenuButton } from "@/components/ui/sidebar";
+import clsx from "clsx";
+import { FactoryIcon } from "lucide-react";
 
 export function NavHeader() {
     const { state } = useSidebar();
 
     return (
         // Logo e nome da aplicação
-        <SidebarMenu>
+        <SidebarMenu className={clsx("flex items-center", state === "collapsed" ? "flex-col" : "flex-row")}>
             <SidebarMenuButton asChild className="transition-all duration-200">
                 <Link href="/" className="h-auto w-auto">
                     {state === "collapsed" ? (
-                        <Image src={LogoLabtec.src} alt="Logo Labtec" width={40} height={40} />
+                        <FactoryIcon className="size-10 text-primary" />
                     ) : (
                         <div className="flex flex-row items-center gap-2">
-                            <Image src={LogoLabtec.src} alt="Logo Labtec" width={40} height={40} />
+                            <FactoryIcon className="size-10 text-primary" />
                             <div className="flex flex-col justify-between">
                                 <span className="text-base">
                                     Fabricação
@@ -36,6 +34,7 @@ export function NavHeader() {
                     )}
                 </Link>
             </SidebarMenuButton>
+            <SidebarTrigger className="cursor-pointer hover:bg-secondary/20 hover:text-primary" />
         </SidebarMenu>
     );
 }
