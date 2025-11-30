@@ -5,25 +5,26 @@ Resumo rápido
 - O `frontend` faz chamadas HTTP para o `backend` através de `NEXT_PUBLIC_API_URL`.
 
 1) Requisitos locais
+1) Requisitos locais
 - Node.js (recomendado >= 18)
 - pnpm (opcional, mas o `frontend` usa `pnpm` no package.json). Você pode usar `npm` também.
-- MySQL (se você for manter o backend como está).
 
-2) Estrutura importante
-- `frontend/` — aplicação Next.js que chama a API.
-- `backend/` — servidor Express/Node que fala com um banco SQL (atualmente MySQL). Este servidor precisa estar rodando (ou deployado) e expor endpoints públicos para o frontend chamar.
+Nota: este backend foi adaptado para usar um armazenamento em arquivo (`backend/data.json`) por padrão. Não é necessário ter um banco de dados instalado para rodar em desenvolvimento.
 
-3) Onde colocar as variáveis de ambiente
-- Frontend (desenvolvimento local): `frontend/.env.local`
-  - Use apenas para variáveis públicas/voltadas ao cliente (ex.: `NEXT_PUBLIC_API_URL`).
-  - Exemplo `frontend/.env.local`:
+-- Backend (desenvolvimento local): `backend/.env`
+
+  O backend agora usa `backend/data.json` como armazenamento por padrão. Você pode rodar sem configurar um banco.
+
+  Exemplo mínimo `backend/.env`:
 
 ```
-NEXT_PUBLIC_API_URL=http://localhost:3001
+PORT=3001
+FRONTEND_URL=http://localhost:3000
 ```
 
+  Observação: se você quiser conectar um banco de dados externo no futuro, restaure `database/connection.js` e ajuste dependências.
 - Backend (desenvolvimento local): `backend/.env`
-  
+  2. (Opcional) Configure `backend/.env` caso queira alterar porta ou origem do frontend.
   Exemplo `backend/.env` (MySQL):
 
 ```

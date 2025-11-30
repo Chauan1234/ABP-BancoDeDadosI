@@ -1,0 +1,323 @@
+{
+  "fornecedor": [
+    {
+      "cnpj": 1001,
+      "nome": "Santista Têxtil S.A.",
+      "endereco": "Av. Dr. Alberto Jackson Byington, SP",
+      "pais": "Brasil",
+      "telefone": "1123456789",
+      "email": "contato@santista.com"
+    },
+    {
+      "cnpj": 1002,
+      "nome": "Cedro Têxtil",
+      "endereco": "R. dos Industriais, MG",
+      "pais": "Brasil",
+      "telefone": "3135689000",
+      "email": "vendas@cedro.com"
+    },
+    {
+      "cnpj": 1003,
+      "nome": "Canatiba Denim Industry",
+      "endereco": "Av. Sete de Setembro, SP",
+      "pais": "Brasil",
+      "telefone": "1147859632",
+      "email": "suporte@canatiba.com"
+    },
+    {
+      "cnpj": 1004,
+      "nome": "Vicunha Têxtil S.A.",
+      "endereco": "Rua Tomé de Souza, CE",
+      "pais": "Brasil",
+      "telefone": "8532154478",
+      "email": "atendimento@vicunha.com"
+    },
+    {
+      "cnpj": 1005,
+      "nome": "Hering Têxtil",
+      "endereco": "Rua Hermann Hering, SC",
+      "pais": "Brasil",
+      "telefone": "4730649000",
+      "email": "contato@hering.com"
+    }
+  ],
+  "materiaPrima": [
+    {
+      "codigo": 1,
+      "nome": "Tecido Jeans Azul 12oz",
+      "preco": 32.9,
+      "quantidade": 500,
+      "codfornecedor": 1001
+    },
+    {
+      "codigo": 2,
+      "nome": "Tecido Jeans Black 10oz",
+      "preco": 29.5,
+      "quantidade": 300,
+      "codfornecedor": 1002
+    },
+    {
+      "codigo": 3,
+      "nome": "Linha Poliester Azul",
+      "preco": 5.9,
+      "quantidade": 2000,
+      "codfornecedor": 1003
+    },
+    {
+      "codigo": 4,
+      "nome": "Linha Poliester Preta",
+      "preco": 6.2,
+      "quantidade": 1800,
+      "codfornecedor": 1003
+    },
+    {
+      "codigo": 5,
+      "nome": "Botão Metálico Níquel",
+      "preco": 0.8,
+      "quantidade": 5000,
+      "codfornecedor": 1004
+    },
+    {
+      "codigo": 6,
+      "nome": "Zíper 18cm",
+      "preco": 1.5,
+      "quantidade": 1200,
+      "codfornecedor": 1005
+    },
+    {
+      "codigo": 7,
+      "nome": "Etiqueta Couro Sintético",
+      "preco": 1.1,
+      "quantidade": 1500,
+      "codfornecedor": 1005
+    },
+    {
+      "codigo": 8,
+      "nome": "Rebite Bronze",
+      "preco": 0.5,
+      "quantidade": 6000,
+      "codfornecedor": 1004
+    },
+    {
+      "codigo": 9,
+      "nome": "Tecido Jeans Premium 14oz",
+      "preco": 45,
+      "quantidade": 400,
+      "codfornecedor": 1001
+    },
+    {
+      "codigo": 10,
+      "nome": "Linha Overlock",
+      "preco": 4,
+      "quantidade": 2500,
+      "codfornecedor": 1002
+    }
+  ],
+  "fabricacao": [
+    {
+      "codigo": 1,
+      "nome": "Lote Calça Skinny Azul",
+      "dataInicio": "2025-01-05",
+      "dataFinal": "2025-01-20",
+      "descricao": "Produção de calça skinny jeans azul",
+      "status": "F",
+      "codmateriaprima": 1
+    },
+    {
+      "codigo": 2,
+      "nome": "Lote Calça Reta Preta",
+      "dataInicio": "2025-01-10",
+      "dataFinal": "2025-01-25",
+      "descricao": "Calça reta com jeans black 10oz",
+      "status": "F",
+      "codmateriaprima": 2
+    },
+    {
+      "codigo": 3,
+      "nome": "Lote Calça Mom Azul",
+      "dataInicio": "2025-02-01",
+      "dataFinal": "2025-02-15",
+      "descricao": "Calça estilo Mom com tecido 12oz",
+      "status": "C",
+      "codmateriaprima": 1
+    },
+    {
+      "codigo": 4,
+      "nome": "Lote Calça Slim Premium",
+      "dataInicio": "2025-02-20",
+      "dataFinal": "2025-03-01",
+      "descricao": "Linha premium com jeans 14oz",
+      "status": "EA",
+      "codmateriaprima": 9
+    },
+    {
+      "codigo": 5,
+      "nome": "Lote Calça Wide Leg",
+      "dataInicio": "2025-02-25",
+      "dataFinal": "2025-03-10",
+      "descricao": "Wide leg com acabamento reforçado",
+      "status": "I",
+      "codmateriaprima": 1
+    },
+    {
+      "codigo": 6,
+      "nome": "Lote Bermudas Jeans",
+      "dataInicio": "2025-03-01",
+      "dataFinal": "2025-03-18",
+      "descricao": "Bermudas jeans azul 12oz",
+      "status": "C",
+      "codmateriaprima": 1
+    }
+  ],
+  "materiaprimafabricacao": [
+    {
+      "codmateriaprima": 1,
+      "codfabricacao": 1
+    },
+    {
+      "codmateriaprima": 3,
+      "codfabricacao": 1
+    },
+    {
+      "codmateriaprima": 5,
+      "codfabricacao": 1
+    },
+    {
+      "codmateriaprima": 7,
+      "codfabricacao": 1
+    },
+    {
+      "codmateriaprima": 2,
+      "codfabricacao": 2
+    },
+    {
+      "codmateriaprima": 4,
+      "codfabricacao": 2
+    },
+    {
+      "codmateriaprima": 5,
+      "codfabricacao": 2
+    },
+    {
+      "codmateriaprima": 8,
+      "codfabricacao": 2
+    },
+    {
+      "codmateriaprima": 1,
+      "codfabricacao": 3
+    },
+    {
+      "codmateriaprima": 3,
+      "codfabricacao": 3
+    },
+    {
+      "codmateriaprima": 8,
+      "codfabricacao": 3
+    },
+    {
+      "codmateriaprima": 9,
+      "codfabricacao": 4
+    },
+    {
+      "codmateriaprima": 3,
+      "codfabricacao": 4
+    },
+    {
+      "codmateriaprima": 5,
+      "codfabricacao": 4
+    },
+    {
+      "codmateriaprima": 7,
+      "codfabricacao": 4
+    },
+    {
+      "codmateriaprima": 1,
+      "codfabricacao": 5
+    },
+    {
+      "codmateriaprima": 4,
+      "codfabricacao": 5
+    },
+    {
+      "codmateriaprima": 5,
+      "codfabricacao": 5
+    },
+    {
+      "codmateriaprima": 1,
+      "codfabricacao": 6
+    },
+    {
+      "codmateriaprima": 3,
+      "codfabricacao": 6
+    },
+    {
+      "codmateriaprima": 7,
+      "codfabricacao": 6
+    }
+  ],
+  "produto": [
+    {
+      "codigo": 1,
+      "nome": "Calça Skinny Azul",
+      "preco": 129.9,
+      "descricao": "Modelagem skinny, jeans azul 12oz",
+      "tamanho": 38,
+      "quantidade": 120,
+      "codfabricacao": 1
+    },
+    {
+      "codigo": 2,
+      "nome": "Calça Skinny Azul",
+      "preco": 129.9,
+      "descricao": "Modelagem skinny, jeans azul 12oz",
+      "tamanho": 40,
+      "quantidade": 150,
+      "codfabricacao": 1
+    },
+    {
+      "codigo": 3,
+      "nome": "Calça Reta Preta",
+      "preco": 139.9,
+      "descricao": "Jeans preto 10oz, corte tradicional",
+      "tamanho": 42,
+      "quantidade": 90,
+      "codfabricacao": 2
+    },
+    {
+      "codigo": 4,
+      "nome": "Calça Mom Azul",
+      "preco": 159.9,
+      "descricao": "Modelagem Mom, cintura alta",
+      "tamanho": 38,
+      "quantidade": 80,
+      "codfabricacao": 3
+    },
+    {
+      "codigo": 5,
+      "nome": "Calça Slim Premium",
+      "preco": 199.9,
+      "descricao": "Linha premium com jeans 14oz",
+      "tamanho": 40,
+      "quantidade": 70,
+      "codfabricacao": 4
+    },
+    {
+      "codigo": 6,
+      "nome": "Calça Wide Leg",
+      "preco": 149.9,
+      "descricao": "Modelagem wide leg moderna",
+      "tamanho": 42,
+      "quantidade": 100,
+      "codfabricacao": 5
+    },
+    {
+      "codigo": 7,
+      "nome": "Bermuda Jeans Azul",
+      "preco": 89.9,
+      "descricao": "Bermuda em jeans 12oz",
+      "tamanho": 40,
+      "quantidade": 140,
+      "codfabricacao": 6
+    }
+  ]
+}
